@@ -2,6 +2,7 @@
 #define SORTING_ALGORITHMS
 
 #include <vector>
+#include <iostream>
 const int MAX_SIZE = 100000;
 static const int MIN_SIZE  = 4; // Smallest size of an array that quicksort will sort
 
