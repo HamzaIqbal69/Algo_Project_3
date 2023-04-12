@@ -19,15 +19,13 @@ class wordFinder
     public:
         wordFinder();
         void readWords(string filename);
-        string findWord(string find_word);
+        bool findWord(string find_word);
         friend ostream& operator << (ostream& os, const wordFinder wordList);
         vector<string> getWords();
 };
 
 wordFinder::wordFinder()
-{
-    words = {};
-}
+{}
 
 void wordFinder::readWords(string filename)
 {
@@ -69,7 +67,7 @@ ostream& operator<<(ostream& os, const wordFinder wordList)
     return os;
 }
 
-string wordFinder::findWord(string find_word)
+bool wordFinder::findWord(string find_word)
 {
     int left = 0;
     int right = words.size();
@@ -78,7 +76,7 @@ string wordFinder::findWord(string find_word)
     {
         if(words[mid] == find_word)
         {
-            return words[mid];
+            return true;
         }
         if(words[mid] < find_word)
         {
@@ -91,7 +89,7 @@ string wordFinder::findWord(string find_word)
             mid = (left + right) / 2;
         }
     }
-    throw out_of_range("Word not found");
+    return false;
 }
 
 #endif	

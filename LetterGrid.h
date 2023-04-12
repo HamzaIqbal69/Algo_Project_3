@@ -20,6 +20,7 @@ class letterGrid
     public:
         letterGrid(string fileName);
         friend ostream& operator << (ostream& os, const letterGrid letter_grid);
+        matrix<char> getGrid();
 };
 
 letterGrid::letterGrid(string fileName)
@@ -60,6 +61,11 @@ ostream& operator << (ostream& os, const letterGrid letter_grid)
         os << endl << endl;
     }
     return os;
+}
+
+matrix<char> letterGrid::getGrid()
+{
+    return grid;
 }
 
 #endif	
